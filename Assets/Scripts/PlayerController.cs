@@ -11,6 +11,21 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rB2d;
     public float jumpForce;
     private bool isGrounded = true;
+    public GameObject UnityButton;
+    public GameObject CanvosObj; 
+
+    internal void KillPlayer()
+    {
+        Debug.Log("Player Killed By Enemy");
+        animator.SetBool("Die", true);
+    }
+
+    public void ButtonAppear()
+        {
+        GameObject buttonPrefab = Instantiate(UnityButton, new Vector3(0f,0f,0f), transform.rotation);
+        buttonPrefab.transform.parent = CanvosObj.transform;
+    }
+
     // Start is called before the first frame update
     private void Awake(){
         rB2d = gameObject.GetComponent<Rigidbody2D>();
@@ -38,9 +53,11 @@ public class PlayerController : MonoBehaviour
         methodAnimationRun(horizontal, verticle);
 
         animator.SetBool("Crowch", Input.GetButton("Fire1"));
+        
 
     
     }
+
 
     private void methodAnimationRun(float horizontal, float verticle){
         
