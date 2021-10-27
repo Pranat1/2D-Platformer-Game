@@ -9,11 +9,24 @@ public class EnemyCuntroller : MonoBehaviour
     public float distance = 5f;
     public bool moveRight = true;
     public Transform groundDetection;
+    int lives;
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        PlayerController scriptPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        lives = scriptPlayer.lives;
+        GameObject[] gameLife = GameObject.FindGameObjectsWithTag("Life");
         if(collision.gameObject.GetComponent<PlayerController>() != null){
+            lives -= 1;
+            scriptPlayer.SetLives(lives);
+            if(lives >= 0)
+            {
+                gameLife[lives].SetActive(false);
+            }
+            if (lives == 0){
+
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             playerController.KillPlayer();
+            }
         }
     }
     void Update()

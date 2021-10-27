@@ -98,4 +98,12 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.7
+    functionName: ButtonAppear
+    data: 
+    objectReferenceParameter: {fileID: 7717401817779283440, guid: d928e09a29c3047409bba1604de53e64,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

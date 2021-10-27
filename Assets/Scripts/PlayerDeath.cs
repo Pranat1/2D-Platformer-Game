@@ -17,6 +17,7 @@ void OnTriggerEnter2D()
 */
     public void LoadSceneAgain() 
     {
-    SceneManager.LoadScene("GameSchene");
+    Scene scene = SceneManager.GetActiveScene();
+    SceneManager.LoadScene(scene.name);
     }
 }

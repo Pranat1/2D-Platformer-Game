@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1220049339383769889}
   - component: {fileID: 1991725540}
   - component: {fileID: 403227900989002493}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,8 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51939165d15a0c44f85917d8d7f03f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
-  distance: 5
+  PlayerDeath1: {fileID: 0}
+  speed: 1
+  distance: 100
   moveRight: 1
   groundDetection: {fileID: 4490069415412837261}
 --- !u!50 &403227900989002493
@@ -159,10 +160,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4490069415412837261}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundDetection
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -174,7 +175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8086836987005959878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.2, y: 0.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6889776137509673662}

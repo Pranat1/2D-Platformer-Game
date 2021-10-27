@@ -12,7 +12,15 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     private bool isGrounded = true;
     public GameObject UnityButton;
-    public GameObject CanvosObj; 
+    public GameObject CanvosObj;
+    public int lives = 3; 
+
+
+
+    // Start is called before the first frame update
+    private void Awake(){
+        rB2d = gameObject.GetComponent<Rigidbody2D>();
+    }
 
     internal void KillPlayer()
     {
@@ -22,13 +30,15 @@ public class PlayerController : MonoBehaviour
 
     public void ButtonAppear()
         {
-        GameObject buttonPrefab = Instantiate(UnityButton, new Vector3(0f,0f,0f), transform.rotation);
-        buttonPrefab.transform.parent = CanvosObj.transform;
-    }
 
-    // Start is called before the first frame update
-    private void Awake(){
-        rB2d = gameObject.GetComponent<Rigidbody2D>();
+        GameObject buttonPrefab = Instantiate(UnityButton, new Vector3(335f,209f,0f), transform.rotation);
+        buttonPrefab.transform.parent = CanvosObj.transform;
+        gameObject.GetComponent<PlayerController>().enabled = false;
+        EnemyCuntroller[] CuntrollerObj = FindObjectsOfType<EnemyCuntroller>();
+        for (int i = 0; i < CuntrollerObj.Length; i++){
+            CuntrollerObj[i].enabled = false;
+        }
+
     }
 
     public void PickUpKey()
@@ -89,6 +99,10 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         isGrounded = true;
+    }
+    public void SetLives(int newLives)
+    {
+        lives = newLives;
     }
 
 }
