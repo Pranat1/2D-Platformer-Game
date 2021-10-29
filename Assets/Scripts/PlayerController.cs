@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject UnityButton;
     public GameObject CanvosObj;
     public int lives = 3; 
-
+    public GameOverCuntroller gameOver;
 
 
     // Start is called before the first frame update
@@ -30,9 +30,7 @@ public class PlayerController : MonoBehaviour
 
     public void ButtonAppear()
         {
-
-        GameObject buttonPrefab = Instantiate(UnityButton, new Vector3(335f,209f,0f), transform.rotation);
-        buttonPrefab.transform.parent = CanvosObj.transform;
+        gameOver.GameOverMethod();
         gameObject.GetComponent<PlayerController>().enabled = false;
         EnemyCuntroller[] CuntrollerObj = FindObjectsOfType<EnemyCuntroller>();
         for (int i = 0; i < CuntrollerObj.Length; i++){
