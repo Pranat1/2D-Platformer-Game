@@ -12,4 +12,8 @@ public class SceneLoader : MonoBehaviour
     public void QuitScene(){
         Application.Quit();
     }
+    public void OpenLobbey()
+    {
+        SceneManager.LoadScene("Lobby");
+    }
 }
