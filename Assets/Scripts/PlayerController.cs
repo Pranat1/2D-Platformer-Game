@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Player Killed By Enemy");
         animator.SetBool("Die", true);
+        SoundManager.Instance.PlayMusic(Sounds.PlayerDeath);
     }
 
     public void ButtonAppear()

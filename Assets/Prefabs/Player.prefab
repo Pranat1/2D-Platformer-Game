@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 953427486}
   - component: {fileID: 953427485}
-  - component: {fileID: 953427484}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -75,14 +74,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &953427484
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 953427483}
-  m_Enabled: 1
 --- !u!1 &7717401817779283440
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +240,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f3657049b9e2b44ad13b0ee0da7f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreCuntroller: {fileID: 0}
   animator: {fileID: 3907023332008289771}
   speed: 3
   jumpForce: 5
+  UnityButton: {fileID: 0}
+  CanvosObj: {fileID: 0}
+  lives: 3
+  gameOver: {fileID: 0}
