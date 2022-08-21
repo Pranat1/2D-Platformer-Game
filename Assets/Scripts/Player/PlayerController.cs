@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public ScoreCuntroller scoreCuntroller;
-    public Animator animator;
-    public float speed = 2f;
-    private Rigidbody2D rB2d;
-    public float jumpForce;
-    private bool isGrounded = true;
-    public GameObject UnityButton;
-    public GameObject CanvosObj;
-    public int lives = 3; 
-    public GameOverCuntroller gameOver;
+    [SerializeField] private ScoreCuntroller scoreCuntroller;
+    [SerializeField] private Animator animator;
+    [SerializeField] private float speed = 2f;
+    [SerializeField] private Rigidbody2D rB2d;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private bool isGrounded = true;
+    [SerializeField] private GameObject UnityButton;
+    [SerializeField] private GameObject CanvosObj;
+    [SerializeField] private int lives = 3; 
+    [SerializeField] private GameOverCuntroller gameOver;
+    [SerializeField] private EnemyCuntroller[] CuntrollerObj;
 
 
     // Start is called before the first frame update
@@ -33,7 +34,6 @@ public class PlayerController : MonoBehaviour
         {
         gameOver.GameOverMethod();
         gameObject.GetComponent<PlayerController>().enabled = false;
-        EnemyCuntroller[] CuntrollerObj = FindObjectsOfType<EnemyCuntroller>();
         for (int i = 0; i < CuntrollerObj.Length; i++){
             CuntrollerObj[i].enabled = false;
         }
@@ -102,6 +102,10 @@ public class PlayerController : MonoBehaviour
     public void SetLives(int newLives)
     {
         lives = newLives;
+    }
+    public int GetLives()
+    {
+        return lives;
     }
 
 }

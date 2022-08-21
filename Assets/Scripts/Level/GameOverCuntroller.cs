@@ -10,11 +10,6 @@ public class GameOverCuntroller : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void GameOverMethod(){
         gameObject.SetActive(true);
     }

@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+[SerializeField] class SoundManager : MonoBehaviour
 {
     private static SoundManager instance;
     public static SoundManager Instance { get {return instance; } }
 
-    public AudioSource soundEffect;
-    public AudioSource soundMusic;
-    public SoundType[] Sounds;
-    public bool isMute =false;
-    public float Volume = 1f;
-    private void Awake()
+    [SerializeField] private AudioSource soundEffect;
+    [SerializeField] private AudioSource soundMusic;
+    [SerializeField] private SoundType[] Sounds;
+    [SerializeField] private bool isMute =false;
+    [SerializeField] private float Volume = 1f;
+    public void Awake()
     {
         if(instance == null)
         {

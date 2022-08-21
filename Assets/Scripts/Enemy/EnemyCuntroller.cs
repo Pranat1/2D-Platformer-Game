@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class EnemyCuntroller : MonoBehaviour
 {
-    public GameObject PlayerDeath1;
-    public float speed;
-    public float distance = 5f;
-    public bool moveRight = true;
-    public Transform groundDetection;
+    [SerializeField] private GameObject PlayerDeath1;
+    [SerializeField] private float speed;
+    [SerializeField] private float distance = 5f;
+    [SerializeField] private bool moveRight = true;
+    [SerializeField] private Transform groundDetection;
     int lives;
+    [SerializeField] private PlayerController scriptPlayer;
+    [SerializeField] private GameObject[] gameLife;
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerController scriptPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        lives = scriptPlayer.lives;
-        GameObject[] gameLife = GameObject.FindGameObjectsWithTag("Life");
+        lives = scriptPlayer.GetLives();
         if(collision.gameObject.GetComponent<PlayerController>() != null){
             lives -= 1;
             scriptPlayer.SetLives(lives);
@@ -34,7 +34,6 @@ public class EnemyCuntroller : MonoBehaviour
         transform.Translate(Vector2.right*speed*Time.deltaTime);
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
-        Debug.Log(groundInfo.collider);
         if(groundInfo.collider == PlayerDeath1.GetComponent<BoxCollider2D>()){
             if(moveRight == true){
                 transform.eulerAngles = new Vector3(0,-180,0);

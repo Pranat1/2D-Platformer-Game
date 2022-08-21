@@ -6,10 +6,10 @@ using System;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Button))]
-public class LevelLoader : MonoBehaviour
+[SerializeField] class LevelLoader : MonoBehaviour
 {
     private Button button;
-    public string LevelName;
+    [SerializeField] private LevelName LevelName;
     private void Awake()
     {
         button = GetComponent<Button>();
@@ -24,11 +24,11 @@ public class LevelLoader : MonoBehaviour
                 Debug.Log("Can't play this level you need to unlock it");
                 break;
             case LevelStatus.Unlocked:
-                SceneManager.LoadScene(LevelName);
+                SceneManager.LoadScene(Convert.ToInt32(LevelName));
                 SoundManager.Instance.Play(Sounds.ButtonClick);
                 break;
             case LevelStatus.Completed:
-                SceneManager.LoadScene(LevelName);
+                SceneManager.LoadScene(Convert.ToInt32(LevelName));
                 SoundManager.Instance.Play(Sounds.ButtonClick);
                 break;
         }

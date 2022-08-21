@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerDeath : MonoBehaviour{
     
-    public GameObject UnityButton; 
+    [SerializeField] private GameObject UnityButton; 
 
 /*
 void OnTriggerEnter2D()
